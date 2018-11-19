@@ -89,3 +89,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # if error on IBM Push try:
 # bluemix cf push hamburger -b https://github.com/cloudfoundry/buildpack-ruby.git
+
+# update ruby to match bluemix version
+# rvm install ruby-2.4.5
