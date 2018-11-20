@@ -2,10 +2,12 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.4.5'
+# on error:
+# rvm install 2.4.5
+# rvm use 2.4.5
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
-gem 'bootstrap-sass', '3.3.7'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
@@ -28,6 +30,11 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Add Default
+gem 'jquery-rails'
+gem 'bootstrap-sass', '3.3.7'
+gem 'bcrypt', '3.1.12'
+
 # Additional Gems
 gem 'axlsx', '~> 2.0', '>= 2.0.1'
 # gem 'rubyzip'
@@ -35,7 +42,6 @@ gem 'ibm_watson'
 gem 'signature-pad-rails', '~> 1.0'
 gem 'carrierwave', '~> 1.2.2'
 gem 'mini_magick', '~> 4.7.0'
-gem 'jquery-rails'
 
 
 # Use ActiveStorage variant
