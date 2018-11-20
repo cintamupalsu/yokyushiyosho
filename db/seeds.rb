@@ -14,10 +14,17 @@ User.create!(name:  "Arief Maulana",
 
 99.times do |n|
   name  = Faker::Name.name
-  email = "example-#{n+1}@railstutorial.org"
+  email = "example-#{n+1}@unterlindenunterlinden.org"
   password = "password"
   User.create!(name:  name,
                email: email,
                password:              password,
                password_confirmation: password)
 end
+
+# To reset DB
+# bluemix cf push -c "bundle exec rake db:migrate:reset" documents
+# bluemix cf push -c "null" documents
+
+# To add last user as Admin
+# bluemix cf push -f manifest.yml -c "User.last.update_attribute(:admin, true)"
