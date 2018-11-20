@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       log_in user
       #remember user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to user # Rails automatically converts this to the route for the user’s profile page: user_url(user)
+      # redirect_to user # Rails automatically converts this to the route for the user’s profile page: user_url(user)
+      redirect_back_or user
     else
       flash.now[:danger] = '無効なメールやパスワードなど。'
       render 'new'

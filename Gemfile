@@ -34,6 +34,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails'
 gem 'bootstrap-sass', '3.3.7'
 gem 'bcrypt', '3.1.12'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 
 # Additional Gems
 gem 'axlsx', '~> 2.0', '>= 2.0.1'
