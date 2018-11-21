@@ -104,3 +104,10 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # update ruby to match bluemix version
 # rvm install ruby-2.4.5
+
+#$ heroku maintenance:on
+#$ heroku pg:reset DATABASE
+#$ heroku run rails db:migrate
+#$ heroku run rails db:seed
+#$ heroku restart
+#$ heroku maintenance:off

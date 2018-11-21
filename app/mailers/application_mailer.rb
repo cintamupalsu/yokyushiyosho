@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'noreply@primekarte-maulanamania.c9users.io'
+  default from: 'noreply@sbs-infosys.co.jp'
   layout 'mailer'
 end
