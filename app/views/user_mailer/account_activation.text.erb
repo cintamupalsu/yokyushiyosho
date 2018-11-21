@@ -1,0 +1,7 @@
+<%= @user.name %>様,
+お疲れ様です、PK-Tools on Webの自動返信でございます。
+PK-Tools on Webへようこそ。アカウント開設ためにこちらのリンクでクリックしてください。
+
+<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+宜しくお願い致します。

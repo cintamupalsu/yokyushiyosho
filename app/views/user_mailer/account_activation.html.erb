@@ -1,0 +1,7 @@
+<h1>PK-Tools on Web</h1>
+<p><%= @user.name %>様,</p>
+</p>お疲れ様です、PK-Tools on Webでございます。</p>
+</p>PK-Tools on Webへようこそ。アカウント開設ためにこちらのリンクでクリックしてください。</p>
+</p><%= edit_account_activation_url(@user.activation_token, email: @user.email) %></p>
+</p>宜しくお願い致します。</p>
+

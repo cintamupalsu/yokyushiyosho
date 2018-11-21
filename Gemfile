@@ -9,7 +9,7 @@ ruby '2.4.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+# gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -68,6 +68,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'sqlite3'
 end
 
 group :test do
@@ -87,6 +88,7 @@ end
 
 group :production do
   gem 'ibm_db'
+  gem 'pg', '0.18.4'
   gem 'fog'
 end
 
@@ -98,7 +100,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 # sudo apt-get install build-essential libcurl4-openssl-dev
 
 # if error on IBM Push try:
-# bluemix cf push hamburger -b https://github.com/cloudfoundry/buildpack-ruby.git
+# bluemix cf push documents -b https://github.com/cloudfoundry/buildpack-ruby.git
 
 # update ruby to match bluemix version
 # rvm install ruby-2.4.5

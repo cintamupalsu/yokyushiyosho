@@ -17,10 +17,18 @@ class UsersController < ApplicationController
   
    def create
       @user = User.new(user_params)
+      if User.count==0 
+         @user.admin=true
+      end
+      
       if @user.save
-         log_in @user
-         flash[:success] = "PK-Tools on Watsonへようこそ。"
-         redirect_to @user
+         #log_in @user
+         #flash[:success] = "PK-Tools on Watsonへようこそ。"
+         #redirect_to @user
+         @user.send_activation_email
+         #UserMailer.account_activation(@user).deliver_now
+         flash[:info] = "アカウントを有効するためにメールを確認してください。"
+         redirect_to root_url
       else
          render 'new'
       end
@@ -58,7 +66,7 @@ class UsersController < ApplicationController
    def logged_in_user
       unless logged_in?
          store_location
-         flash[:danger] = "Please log in."
+         flash[:danger] = "ログインしてください。"
          redirect_to login_url
       end
    end
