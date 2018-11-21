@@ -1,7 +1,10 @@
 class YokyushiyoshoController < ApplicationController
   before_action :logged_in_user
   
-  def torikomi
+  def create_torikomi
+  end
+
+  def create_sakusei
   end
 
   def sakusei

@@ -1,10 +1,11 @@
 <div class="row" id="innertab">
   <div class="col-md-12 " id="layout">
-    <%= form_for(:torikomi, url: login_path) do |f| %>
+    <%= form_for(:torikomi, url: shiyosho_torikomi_path) do |f| %>
   
     <%= f.label :name, "仕様書ファイル" %>
     <%= f.file_field :name, class: 'form-control' %>
-    <h3>【詳細設定】</h3>
+
+    <h4>【詳細設定】</h4>
     <%= f.label :vendor, "仕様元ベンダー" %>
     <%= f.text_field :vendor, class: 'form-control' %>
   

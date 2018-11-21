@@ -13,8 +13,8 @@ Rails.application.routes.draw do
   delete '/logout',  to: 'sessions#destroy'
   
   get    '/shiyosho',          to: 'yokyushiyosho#sakusei'
-  post   '/shiyosho_torikomi', to: 'yokyushiyosho#torikomi'
-  post   '/shiyosho_sakusei',  to: 'yokyushiyosho#sakusei'
+  post   '/shiyosho_torikomi', to: 'yokyushiyosho#create_torikomi'
+  post   '/shiyosho_sakusei',  to: 'yokyushiyosho#create_sakusei'
 
   resources :users
   resources :account_activations, only: [:edit]
