@@ -1,13 +1,14 @@
 require 'test_helper'
 
 class YokyushiyoshoControllerTest < ActionDispatch::IntegrationTest
-  test "should get torikumi" do
-    get yokyushiyosho_torikumi_url
-    assert_response :success
-  end
 
+  def setup
+    @user = users(:michael)
+  end
+  
   test "should get sakusei" do
-    get yokyushiyosho_sakusei_url
+    log_in_as(@user)
+    get shiyosho_path
     assert_response :success
   end
 
