@@ -17,9 +17,9 @@ class UsersController < ApplicationController
   
    def create
       @user = User.new(user_params)
-      if User.count==0 
-         @user.admin=true
-      end
+      #if User.count==0 
+      #   @user.admin=true
+      #end
       
       if @user.save
          #log_in @user
