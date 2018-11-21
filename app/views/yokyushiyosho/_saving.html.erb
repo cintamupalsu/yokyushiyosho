@@ -4,7 +4,7 @@
   
     <%= f.label :name, "仕様書ファイル" %>
     <%= f.file_field :name, class: 'form-control' %>
-    <h3>【仕様書内容】</h3>
+    <h3>【詳細設定】</h3>
     <%= f.label :vendor, "仕様元ベンダー" %>
     <%= f.text_field :vendor, class: 'form-control' %>
   
@@ -18,6 +18,7 @@
       <div class="col-md-2">
         <%= f.text_field :detail, class: 'form-control' %>
       </div>
+      <p>列</p>
     </div>
     <div class="row">
       <div class="col-md-2">
@@ -26,6 +27,7 @@
       <div class="col-md-2">
         <%= f.text_field :answer, class: 'form-control' %>
       </div>
+      <p>列</p>
     </div>
     <div class="row">
       <div class="col-md-2">
@@ -34,6 +36,7 @@
       <div class="col-md-2">
         <%= f.text_field :remark, class: 'form-control' %>
       </div>
+      <p>列</p>
     </div>
     <div class="row">
       <div class="col-md-2 col-md-offset-2">
