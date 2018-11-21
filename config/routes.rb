@@ -9,6 +9,11 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
+  get    '/shiyosho', to: 'yokyushiyosho#sakusei'
+  post   '/shiyosho_torikomi', to: 'yokyushiyosho#torikomi'
+  post   '/shiyosho_sakusei', to: 'yokyushiyosho#sakusei'
+
   resources :users
   resources :account_activations, only: [:edit]
   

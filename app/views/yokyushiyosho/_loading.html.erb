@@ -1,0 +1,41 @@
+<div class="row" id="innertab">
+  <div class="col-md-12 " id="layout">
+    <%= form_for(:sakusei, url: shiyosho_sakusei_path) do |f| %>
+    <%= f.label :name, "仕様書ファイル" %>
+    <%= f.file_field :name, class: 'form-control' %>
+    <h3>詳細設定</h3>
+    <div class="row">
+      <div class="col-md-2">
+        <p>仕様書内容</p>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :detail, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <p>回答</p>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :answer, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">
+        <p>備考</p>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :remark, class: 'form-control' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-2 col-md-offset-2">
+        <%= f.submit "作成", class: "btn btn-primary" %>
+      </div>
+    <% end %>
+      <div class="col-md-2">
+        <a href="<%=shiyosho_path%>" class="btn btn-primary" role="button" >閉じる</a>
+      </div>
+    </div>
+  </div>
+</div>

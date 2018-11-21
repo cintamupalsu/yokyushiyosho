@@ -1,0 +1,20 @@
+// Place all the styles related to the Yokyushiyosho controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+$gray-lighter: #d3d3d3;
+#innertab {
+
+    border-bottom: 1px solid $gray-lighter;
+    border-left: 1px solid $gray-lighter;
+    border-right: 1px solid $gray-lighter;
+    margin-left: 0px;
+    margin-right: 0px;
+
+    #layout{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+    }
+
+    
+}

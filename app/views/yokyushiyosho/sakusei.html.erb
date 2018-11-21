@@ -1,0 +1,30 @@
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="container col-md-9">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a class="nav-link active" id="torikumi-tab" data-toggle="tab" href="#torikumi" role="tab" aria-controls="torikumi" aria-selected="true">様書取り組み</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#sakusei" role="tab" aria-controls="profile" aria-selected="false">仕様書作成</a>
+      </li>
+    </ul>
+    
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade" id="torikumi" role="tabpanel" aria-labelledby="torikumi-tab">
+          <%= render 'saving' %>
+      </div>
+      <div class="tab-pane fade" id="sakusei" role="tabpanel" aria-labelledby="profile-tab">
+          <%= render 'loading' %>
+      </div>
+    </div>      
+  </div>
+</div>
+
