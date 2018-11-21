@@ -7,24 +7,24 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(name:  "Arief Maulana",
-             email: "maulanamania@gmail.com",
+             email: "a_maulana@sbs-infosys.co.jp",
              password:              "aaaaaaaa",
              password_confirmation: "aaaaaaaa",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
 
-99.times do |n|
-  name  = Faker::Name.name
-  email = "example-#{n+1}@unterlindenunterlinden.org"
-  password = "password"
-  User.create!(name:  name,
-               email: email,
-               password:              password,
-               password_confirmation: password,
-               activated: true,
-               activated_at: Time.zone.now)
-end
+#99.times do |n|
+#  name  = Faker::Name.name
+#  email = "example-#{n+1}@unterlindenunterlinden.org"
+#  password = "password"
+#  User.create!(name:  name,
+#               email: email,
+#               password:              password,
+#               password_confirmation: password,
+#               activated: true,
+#               activated_at: Time.zone.now)
+#end
 
 # To reset DB
 # bluemix cf push -c "bundle exec rake db:migrate:reset" documents
