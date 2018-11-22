@@ -1,8 +1,8 @@
 <div class="row" id="innertab">
   <div class="col-md-12 " id="layout">
     <%= form_for(:sakusei, url: shiyosho_sakusei_path) do |f| %>
-    <%= f.label :name, "仕様書ファイル" %>
-    <%= f.file_field :name, class: 'form-control' %>
+    <%= f.label :filename, "仕様書ファイル" %>
+    <%= f.file_field :filename, class: 'form-control' %>
     <h4>【詳細設定】</h4>
     <div class="row">
       <div class="col-md-2">

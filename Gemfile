@@ -39,8 +39,16 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 
 # Additional Gems
-gem 'axlsx', '~> 2.0', '>= 2.0.1'
-# gem 'rubyzip'
+#gem 'axlsx', '~> 2.0', '>= 2.0.1'
+#gem 'axlsx_rails'
+#gem 'creek'
+gem 'rubyXL'  
+# on error:
+# Unknown child node [xr:revisionPtr] for element [workbook]
+# run
+# bundle update
+
+gem 'rubyzip'
 gem 'ibm_watson'
 gem 'signature-pad-rails', '~> 1.0'
 gem 'carrierwave', '~> 1.2.2'
