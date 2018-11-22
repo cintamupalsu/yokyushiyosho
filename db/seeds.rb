@@ -8,8 +8,8 @@
 
 User.create!(name:  "Arief Maulana H",
              email: "maulanamania@outlook.com",
-             password:              "aaaaaaaa",
-             password_confirmation: "aaaaaaaa",
+             password:              "weluweluwelu",
+             password_confirmation: "weluweluwelu",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)

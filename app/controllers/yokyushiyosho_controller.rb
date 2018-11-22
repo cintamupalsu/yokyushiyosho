@@ -14,7 +14,7 @@ class YokyushiyoshoController < ApplicationController
     worksheet.add_cell(1, 1 ,"Text B2")
     workbook.write(filexls.path)
     #send_data(filexls, :type => 'application/excel', :filename => filexls.original_filename)
-    send_data( workbook.stream.read, :disposition => 'attachment', :type => 'application/excel', :filename => "filexls.original_filename")
+    send_data( workbook.stream.read, :disposition => 'attachment', :type => 'application/excel', :filename => filexls.original_filename)
     #send_data(filexls)
   end
 
