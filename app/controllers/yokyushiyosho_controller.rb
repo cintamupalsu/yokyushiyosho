@@ -2,6 +2,7 @@ class YokyushiyoshoController < ApplicationController
   before_action :logged_in_user
   
   def create_torikomi
+    @paramkocok = params
   end
 
   def create_sakusei
@@ -19,7 +20,10 @@ class YokyushiyoshoController < ApplicationController
   end
 
   def sakusei
-     @user = User.find(current_user.id)
+    #@user = User.find(current_user.id)
+    @user = User.find(params[:id])
+    @yokyu_parent = YokyuParent.where("user_id = ? AND default_set = ?", @user.id, 1)
+    #@paramkocok = params
   end
   
   private

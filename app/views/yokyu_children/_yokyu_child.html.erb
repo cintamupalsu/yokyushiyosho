@@ -1,0 +1,19 @@
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-md-6">
+      <%= link_to yokyu_child.name, yokyu_child %> 
+    </div>
+    <div class="col-md-1">
+      列：
+    </div>
+    <div class="col-md-1">
+      <%= yokyu_child.default_col %>
+    </div>
+    <div class="col-md-2 center">
+        <%= link_to '編集', edit_yokyu_child_path(yokyu_child) %>
+    </div>
+    <div class="col-md-2 center">
+      <%= link_to "削除", yokyu_child, method: :delete, data: { confirm: "本気ですか?" } %>
+    </div>
+  </div>
+</li>

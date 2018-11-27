@@ -1,0 +1,26 @@
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <section class="yokyushiyosho">
+      <%= render 'yokyushiyosho/sidebar' %>
+      <%= render 'sidebar' %>
+    </section>
+  </aside>
+  <div class="col-md-9">
+    <h3>新規項目</h3>
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <%= form_for(@yokyu_child) do |f| %>
+          <%= f.label :name, "列名" %>
+          <%= f.text_field :name %>
+          <%= f.label :default_col, "Default Column" %>
+          <%= f.text_field :default_col %>
+          <%= f.hidden_field :yokyu_parent_id, value: @yokyu_parent.id %>
+          <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

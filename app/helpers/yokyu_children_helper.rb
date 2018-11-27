@@ -1,0 +1,2 @@
+module YokyuChildrenHelper
+end

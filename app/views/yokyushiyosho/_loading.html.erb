@@ -4,40 +4,37 @@
     <%= f.label :filename, "仕様書ファイル" %>
     <%= f.file_field :filename, class: 'form-control' %>
     <h4>【詳細設定】</h4>
+
     <div class="row">
-      <div class="col-md-2">
-        <p>仕様書内容</p>
+      <div class="col-md-3">
+        <p><strong><%= @yokyu_parent.first.name %></strong></p>
       </div>
       <div class="col-md-2">
-        <%= f.text_field :detail, class: 'form-control' %>
+        <%= f.text_field :parent, class: 'form-control', value: @yokyu_parent.first.default_col %>
       </div>
       <p>列</p>
     </div>
+    
+    <% yokyu_children = @yokyu_parent.first.yokyu_children %>
+    <% yokyu_children.each do |yokyu_child| %>
+      <div class="row">
+        <div class="col-md-3">
+          <p><%= yokyu_child.name %></p>    
+        </div>
+        <div class="col-md-2">
+          <%= f.text_field :answer, class: 'form-control', value: yokyu_child.default_col, multiple: true %>
+        </div>
+        <p>列</p>
+      </div>
+    <% end %>
+    
     <div class="row">
-      <div class="col-md-2">
-        <p>回答</p>
-      </div>
-      <div class="col-md-2">
-        <%= f.text_field :answer, class: 'form-control' %>
-      </div>
-      <p>列</p>
-    </div>
-    <div class="row">
-      <div class="col-md-2">
-        <p>備考</p>
-      </div>
-      <div class="col-md-2">
-        <%= f.text_field :remark, class: 'form-control' %>
-      </div>
-      <p>列</p>
-    </div>
-    <div class="row">
-      <div class="col-md-2 col-md-offset-2">
+      <div class="col-md-2 col-md-offset-8">
         <%= f.submit "作成", class: "btn btn-primary" %>
       </div>
     <% end %>
       <div class="col-md-2">
-        <a href="<%=shiyosho_path%>" class="btn btn-primary" role="button" >閉じる</a>
+        <%= button_to '閉じる', shiyosho_path(:id => current_user), {class: "btn btn-danger"} %>
       </div>
     </div>
   </div>

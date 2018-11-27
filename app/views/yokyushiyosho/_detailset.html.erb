@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-3">
+    <p><strong><%= @yokyu_parent.first.name %></strong></p>
+  </div>
+  <div class="col-md-2">
+    <%= f.text_field :parent, class: 'form-control', value: @yokyu_parent.first.default_col %>
+  </div>
+  <p>列</p>
+</div>
+
+<% yokyu_children = @yokyu_parent.first.yokyu_children %>
+<% answer = Array.new(yokyu_children.count) %>
+<% counter = 0 %>
+<% yokyu_children.each do |yokyu_child| %>
+  <div class="row">
+    <div class="col-md-3">
+      <p><%= yokyu_child.name %></p>    
+    </div>
+    <div class="col-md-2">
+      <%= f.text_field :answer[counter], class: 'form-control', value: yokyu_child.default_col %>
+    </div>
+    <p>列</p>
+  </div>
+  <% counter+=1 %>  
+<% end %>

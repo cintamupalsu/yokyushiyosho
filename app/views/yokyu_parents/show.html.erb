@@ -1,0 +1,29 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-3">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="yokyushiyosho">
+        <%= render 'yokyushiyosho/sidebar' %>
+        <%= render 'sidebar' %>
+        <%= render 'subsidebar' %>
+      </section>
+    </aside>
+    <div class ="col-md-9">
+      <h3><strong>要求仕様書列</strong></h3>
+      
+        <h4><%= @yokyu_parent.name %> 列：<%=@yokyu_parent.default_col%> | <%= link_to '編集', edit_yokyu_parent_path(@yokyu_parent) %></h4>
+      
+      <ul class="yokyu_children">
+        <% yokyu_children = @yokyu_parent.yokyu_children.where("flag = ?", 0) %>
+        <% yokyu_children.each do |yokyu_child| %>
+          <%= render yokyu_child %>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+
+
