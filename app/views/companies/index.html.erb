@@ -1,0 +1,28 @@
+<% provide(:title, '会社') %>
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section class="company">
+      <%= render 'sidebar' %>
+    </section>
+  </aside>
+  <div class="container col-md-9">
+    <% if @client==true %>
+     <h4>病院</h4>
+    <% else %>
+      <h4>ベンダー</h4>
+    <% end %>
+    <%= will_paginate %>
+    <ul class="companies">
+      <% @companies.each do |company| %>
+        <%= render company %>
+      <% end %>
+    </ul>
+    <%= will_paginate %>
+  </div>
+</div>

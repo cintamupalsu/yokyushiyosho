@@ -9,14 +9,12 @@
     <div class="col-md-3">
         <%= link_to yokyu_parent.name, yokyu_parent %> 
     </div>
-    <div class="col-md-2 center">
-        列：<%= yokyu_parent.default_col %> | 
-        <%= link_to '編集', edit_yokyu_parent_path(yokyu_parent) %>
+    <div class="col-md-3">
+      <%= link_to '編集', edit_yokyu_parent_path(yokyu_parent) %>
+      <span class="badge badge-primary badge-pill"><%= yokyu_parent.yokyu_children.count %></span>
+      列：<%= yokyu_parent.default_col %> 
     </div>
           
-    <div class="col-md-1">
-      <span class="badge badge-primary badge-pill"><%= yokyu_parent.yokyu_children.count %></span>
-    </div>
     <div class="col-md-2">
         <%= button_to '設定', yokyu_parents_default_path(:id => yokyu_parent.id) , {class: "btn btn-primary btn-sm"} %>
     </div>

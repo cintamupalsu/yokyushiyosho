@@ -5,29 +5,30 @@
     <%= f.file_field :filename, class: 'form-control' %>
     <h4>【詳細設定】</h4>
 
-    <div class="row">
-      <div class="col-md-3">
-        <p><strong><%= @yokyu_parent.first.name %></strong></p>
-      </div>
-      <div class="col-md-2">
-        <%= f.text_field :parent, class: 'form-control', value: @yokyu_parent.first.default_col %>
-      </div>
-      <p>列</p>
-    </div>
-    
-    <% yokyu_children = @yokyu_parent.first.yokyu_children %>
-    <% yokyu_children.each do |yokyu_child| %>
+    <% if @yokyu_parent.count>0 %>
       <div class="row">
         <div class="col-md-3">
-          <p><%= yokyu_child.name %></p>    
+          <p><strong><%= @yokyu_parent.first.name %></strong></p>
         </div>
         <div class="col-md-2">
-          <%= f.text_field :answer, class: 'form-control', value: yokyu_child.default_col, multiple: true %>
+          <%= f.text_field :parent, class: 'form-control', value: @yokyu_parent.first.default_col %>
         </div>
         <p>列</p>
       </div>
+      
+      <% yokyu_children = @yokyu_parent.first.yokyu_children %>
+      <% yokyu_children.each do |yokyu_child| %>
+        <div class="row">
+          <div class="col-md-3">
+            <p><%= yokyu_child.name %></p>    
+          </div>
+          <div class="col-md-2">
+            <%= f.text_field :answer, class: 'form-control', value: yokyu_child.default_col, multiple: true %>
+          </div>
+          <p>列</p>
+        </div>
+      <% end %>
     <% end %>
-    
     <div class="row">
       <div class="col-md-2 col-md-offset-8">
         <%= f.submit "作成", class: "btn btn-primary" %>

@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
 
+  get 'companies/new'
+  get 'companies/edit'
+  get 'companies/show'
+  get 'companies/index'
   #get 'yokyu_children/index'
   #get 'yokyu_children/new'
   #get 'yokyu_children/show'
@@ -30,9 +34,12 @@ Rails.application.routes.draw do
   resources :users
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
+  
   resources :yokyu_parents
   post '/yokyu_parents_default', to: 'yokyu_parents#default'
   resources :yokyu_children
   post '/yokyu_children/new', to: 'yokyu_children#new'
-
+  
+  resources :companies
+  
 end

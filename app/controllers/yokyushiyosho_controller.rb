@@ -2,7 +2,8 @@ class YokyushiyoshoController < ApplicationController
   before_action :logged_in_user
   
   def create_torikomi
-    @paramkocok = params
+    #@paramkocok = params
+    #@companies = Company.where("flag = 0")
   end
 
   def create_sakusei

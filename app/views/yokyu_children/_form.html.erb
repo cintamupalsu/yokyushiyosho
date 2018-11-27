@@ -14,9 +14,11 @@
       <div class="col-md-10 col-md-offset-1">
         <%= form_for(@yokyu_child) do |f| %>
           <%= f.label :name, "列名" %>
-          <%= f.text_field :name %>
+          <%= f.text_field :name, class: 'form-control' %>
+          
           <%= f.label :default_col, "Default Column" %>
-          <%= f.text_field :default_col %>
+          <%= f.text_field :default_col, class: 'form-control' %>
+          
           <%= f.hidden_field :yokyu_parent_id, value: @yokyu_parent.id %>
           <%= f.submit yield(:button_text), class: "btn btn-primary" %>
         <% end %>

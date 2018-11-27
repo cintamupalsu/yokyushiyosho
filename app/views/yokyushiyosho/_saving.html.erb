@@ -3,38 +3,41 @@
     <%= form_for(:torikomi, url: shiyosho_torikomi_path) do |f| %>
   
     <%= f.label :name, "仕様書ファイル" %>
+    
     <%= f.file_field :name, class: 'form-control' %>
 
     <h4>【詳細設定】</h4>
-    <%= f.label :vendor, "仕様元ベンダー" %>
-    <%= f.text_field :vendor, class: 'form-control' %>
-  
-    <%= f.label :hospital, "仕様元病院" %>
-    <%= f.text_field :hospital, class: 'form-control' %>
-
-    <div class="row">
-      <div class="col-md-3">
-        <p><strong><%= @yokyu_parent.first.name %></strong></p>
-      </div>
-      <div class="col-md-2">
-        <%= f.text_field :parent, class: 'form-control', value: @yokyu_parent.first.default_col %>
-      </div>
-      <p>列</p>
-    </div>
     
-    <% yokyu_children = @yokyu_parent.first.yokyu_children %>
-    <% yokyu_children.each do |yokyu_child| %>
+    <%= f.label :vendor, "仕様元ベンダー" %>
+    <%= f.select :vendor, Company.where("flag=0 AND company_type_id=2").collect { |p| [p.name, p.id] }, class: 'form-control' %>
+    
+    <%= f.label :hospital, "仕様元病院" %>
+    <%= f.select :hospital, Company.where("flag=0 AND company_type_id=1").collect { |p| [p.name, p.id] }, class: 'form-control' %>
+    
+    <% if @yokyu_parent.count>0 %>
       <div class="row">
         <div class="col-md-3">
-          <p><%= yokyu_child.name %></p>    
+          <p><strong><%= @yokyu_parent.first.name %></strong></p>
         </div>
         <div class="col-md-2">
-          <%= f.text_field :answer, class: 'form-control', value: yokyu_child.default_col, multiple: true %>
+          <%= f.text_field :parent, class: 'form-control', value: @yokyu_parent.first.default_col %>
         </div>
         <p>列</p>
       </div>
+      
+      <% yokyu_children = @yokyu_parent.first.yokyu_children %>
+      <% yokyu_children.each do |yokyu_child| %>
+        <div class="row">
+          <div class="col-md-3">
+            <p><%= yokyu_child.name %></p>    
+          </div>
+          <div class="col-md-2">
+            <%= f.text_field :answer, class: 'form-control', value: yokyu_child.default_col, multiple: true %>
+          </div>
+          <p>列</p>
+        </div>
+      <% end %>
     <% end %>
-
     <div class="row">
       <div class="col-md-2 col-md-offset-8">
         <%= f.submit "取込", class: "btn btn-primary" %>

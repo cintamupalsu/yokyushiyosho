@@ -1,0 +1,16 @@
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-md-3">
+      <%= link_to company.name, company %> 
+    </div>
+    <div class="col-md-2 center">
+      <%= link_to "編集", edit_company_path(company) %> 
+    </div>
+    <div class="col-md-5">
+      <%= link_to company.address %> 
+    </div>
+    <div class="col-md-2 center">
+      <%= link_to "削除", company, method: :delete, data: { confirm: "本気ですか?" } %>
+    </div>
+  </div>
+</li>

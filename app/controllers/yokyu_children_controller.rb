@@ -1,4 +1,6 @@
 class YokyuChildrenController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  
   def index
   end
 
@@ -58,4 +60,12 @@ class YokyuChildrenController < ApplicationController
     params.require(:yokyu_child).permit(:name, :default_col, :yokyu_parent_id)
   end
   
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "ログインしてください。"
+      redirect_to login_url
+    end
+  end
+
 end

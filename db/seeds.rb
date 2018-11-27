@@ -6,13 +6,32 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.create!(name:  "Arief Maulana H",
+User.create!(name:  "アリフ マウラナ",
              email: "maulanamania@outlook.com",
              password:              "weluweluwelu",
              password_confirmation: "weluweluwelu",
              admin: true,
              activated: true,
              activated_at: Time.zone.now)
+
+CompanyType.create!(name: "病院",
+                    client: true,
+                    flag: 0,
+                    user_id: 1)
+CompanyType.create!(name: "ベンダー",
+                    client: false,
+                    flag: 0,
+                    user_id: 1)
+Company.create!(name: 'NEC',
+                address: '静岡市',
+                flag: 0,
+                company_type_id: 2,
+                user_id: 1)
+Company.create!(name: '静岡市立病院',
+                address: '静岡市',
+                flag: 0,
+                company_type_id: 1,
+                user_id: 1)
 
 #99.times do |n|
 #  name  = Faker::Name.name

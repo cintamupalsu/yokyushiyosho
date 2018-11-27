@@ -1,4 +1,6 @@
 class YokyuParentsController < ApplicationController
+  before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
+  
   def index
     @yokyu_parents=YokyuParent.where("user_id = ? AND flag = ?", current_user.id, 0).paginate(page: params[:page])
     @user = User.find(params[:id])
@@ -80,6 +82,14 @@ class YokyuParentsController < ApplicationController
   
   def yokyu_parent_params
     params.require(:yokyu_parent).permit(:name, :default_col)
+  end
+
+  def logged_in_user
+    unless logged_in?
+      store_location
+      flash[:danger] = "ログインしてください。"
+      redirect_to login_url
+    end
   end
 
 end

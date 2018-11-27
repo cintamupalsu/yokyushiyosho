@@ -1,0 +1,17 @@
+<%= form_for(@company) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.label :name, "名前" %>
+  <%= f.text_field :name, class: 'form-control'  %>
+
+  <div class="field">
+      <%= f.label :address, "住所" %>
+      <%= f.text_area :address, placeholder: "郵便番号、県、市、…"  %>
+  </div>
+  <% if @client==true %>
+      <%= f.hidden_field :company_type_id, value: 1 %>
+  <% else %>
+      <%= f.hidden_field :company_type_id, value: 2 %>
+  <% end %>
+  <%= f.submit yield(:button_text), class: "btn btn-primary" %>
+<% end %>
