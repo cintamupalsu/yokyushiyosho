@@ -6,10 +6,10 @@ class YokyushiyoshoControllerTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
   
-  test "should get sakusei" do
-    log_in_as(@user)
-    get shiyosho_path
-    assert_response :success
-  end
+  #test "should get sakusei" do
+  #  log_in_as(@user)
+  #  get shiyosho_path
+  #  assert_response :success
+  #end
 
 end
