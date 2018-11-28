@@ -11,7 +11,7 @@
     </div>
     <div class="col-md-3">
       <%= link_to '編集', edit_yokyu_parent_path(yokyu_parent) %>
-      <span class="badge badge-primary badge-pill"><%= yokyu_parent.yokyu_children.count %></span>
+      <span class="badge badge-primary badge-pill"><%= yokyu_parent.yokyu_children.where("flag=0").count %></span>
       列：<%= yokyu_parent.default_col %> 
     </div>
           

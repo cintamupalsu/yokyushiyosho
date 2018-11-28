@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class YokyuParentDenpyoTest < ActiveSupport::TestCase
+class YokyuDenpyoTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

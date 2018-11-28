@@ -1,6 +1,7 @@
 class User < ApplicationRecord
    has_many :yokyu_parents
    has_many :yokyu_children
+   has_many :yokyu_denpyos
    
    #attr_accessor :remember_token, :activation_token
    attr_accessor :remember_token, :activation_token, :reset_token

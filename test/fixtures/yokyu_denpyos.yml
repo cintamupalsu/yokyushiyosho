@@ -2,10 +2,16 @@
 
 one:
   content: MyText
-  flag: 1
+  user: one
   yokyu_parent: one
+  hospital: 1
+  vendor: 1
+  child: 1
 
 two:
   content: MyText
-  flag: 1
+  user: two
   yokyu_parent: two
+  hospital: 1
+  vendor: 1
+  child: 1

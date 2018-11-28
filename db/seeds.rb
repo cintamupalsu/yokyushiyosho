@@ -33,6 +33,16 @@ Company.create!(name: '静岡市立病院',
                 company_type_id: 1,
                 user_id: 1)
 
+if YokyuParent.all.count == 0
+  users = User.all
+  users.each do |user|
+    YokyuParent.create!(name: "仕様書内容", flag: 0, user_id: user.id, default_col: "D", default_set: 1)
+    yokyu_parent = YokyuParent.last
+    YokyuChild.create!(name: "回答", flag: 0, user_id: user.id, default_col: "E", yokyu_parent_id: yokyu_parent.id)
+    YokyuChild.create!(name: "備考", flag: 0, user_id: user.id, default_col: "H", yokyu_parent_id: yokyu_parent.id)
+  end
+end
+
 #99.times do |n|
 #  name  = Faker::Name.name
 #  email = "example-#{n+1}@unterlindenunterlinden.org"

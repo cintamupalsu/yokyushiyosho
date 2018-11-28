@@ -4,6 +4,7 @@ class CreateYokyuChildren < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :default_col
       t.integer :flag
+      t.integer :custom
       t.references :user, foreign_key: true
       t.references :yokyu_parent, foreign_key: true
 

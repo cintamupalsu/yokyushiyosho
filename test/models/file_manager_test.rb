@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class YokyuChildDenpyoTest < ActiveSupport::TestCase
+class FileManagerTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -1,11 +1,18 @@
 <div class="row" id="innertab">
   <div class="col-md-12 " id="layout">
     <%= form_for(:sakusei, url: shiyosho_sakusei_path) do |f| %>
+    
     <%= f.label :filename, "仕様書ファイル" %>
     <%= f.file_field :filename, class: 'form-control' %>
+    
+    <%= f.label :worksheetname, "ワークシート名" %>
+    <%= f.text_field :worksheetname, class: 'form-control' %>
+
+    
     <h4>【詳細設定】</h4>
 
     <% if @yokyu_parent.count>0 %>
+
       <div class="row">
         <div class="col-md-3">
           <p><strong><%= @yokyu_parent.first.name %></strong></p>
@@ -13,20 +20,27 @@
         <div class="col-md-2">
           <%= f.text_field :parent, class: 'form-control', value: @yokyu_parent.first.default_col %>
         </div>
-        <p>列</p>
+        <div class="col-md-1">
+          <p>列</p>
+        </div>
       </div>
       
       <% yokyu_children = @yokyu_parent.first.yokyu_children %>
       <% yokyu_children.each do |yokyu_child| %>
-        <div class="row">
-          <div class="col-md-3">
-            <p><%= yokyu_child.name %></p>    
+        <% if yokyu_child.flag==0 %>
+          <div class="row">
+            <div class="col-md-3">
+              <p><%= yokyu_child.name %></p>    
+            </div>
+            <div class="col-md-2">
+              <%= f.text_field :child, class: 'form-control', value: yokyu_child.default_col, multiple: true %>
+              <%= f.hidden_field :child_id, value: yokyu_child.id, multiple: true %>
+            </div>
+            <div class="col-md-1">
+              <p>列</p>
+            </div>
           </div>
-          <div class="col-md-2">
-            <%= f.text_field :answer, class: 'form-control', value: yokyu_child.default_col, multiple: true %>
-          </div>
-          <p>列</p>
-        </div>
+        <% end %>
       <% end %>
     <% end %>
     <div class="row">

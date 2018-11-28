@@ -1,0 +1,15 @@
+<li class="list-group-item">
+  <div class="row">
+    <div class="col-md-7">
+      <small><%= link_to file_manager.name, file_manager %></small>
+    </div>
+    <div class="col-md-2 center">
+      <small><%= file_manager.created_at %>
+      <span class="badge badge-primary badge-pill"><%= file_manager.yokyu_denpyos.count %></span>
+      </small>
+    </div>
+    <div class="col-md-2 center">
+        <%= link_to "削除", file_manager, method: :delete, data: { confirm: "本気ですか?" }%>
+    </div>
+  </div>
+</li>
