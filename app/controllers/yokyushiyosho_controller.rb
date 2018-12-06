@@ -49,6 +49,7 @@ class YokyushiyoshoController < ApplicationController
   
       
       natural_language_understanding = IBMWatson::NaturalLanguageUnderstandingV1.new(version: "2018-03-16",iam_apikey: ENV['WATSON_NATURAL_LANGUAGE_KEY_1'], url: "https://gateway.watsonplatform.net/natural-language-understanding/api")
+      
   
       (first_row..worksheet.count-1).each do |i|
         
