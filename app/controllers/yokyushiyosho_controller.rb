@@ -280,7 +280,7 @@ class YokyushiyoshoController < ApplicationController
             
             #get answer
             (0..child_id.length-1).each do |j|
-              yokyu_denpyo_child = YokyuDenpyo.where("watson_language_master_id IN (?) AND child = ?", watson_variant_ids, child_id[j]).first
+              yokyu_denpyo_child = YokyuDenpyo.where("watson_language_master_id IN (?) AND child = ? AND user_id = ?", watson_variant_ids, child_id[j], current_user.id).first
               if worksheet[i][c_col[j]] == nil
                 worksheet.add_cell(i, c_col[j] , yokyu_denpyo_child.content)
               else
