@@ -8,6 +8,9 @@
     </section>
     <section class="yokyushiyosho">
       <%= render 'sidebar' %>
+      <div class="progress-percentage text-xs-center">0%</div>
+      <progress class="progress progress-striped" max="100" value="0"></progress>
+
     </section>
   </aside>
   <div class="container col-md-9">
@@ -27,8 +30,9 @@
       <div class="tab-pane fade" id="sakusei" role="tabpanel" aria-labelledby="sakusei-tab">
           <%= render 'loading' %>
       </div>
-    </div>      
+    </div>
   </div>
 </div>
-
+kakunin too:<%= @paramkocok %>
+kakunin:<%= @kakunin_ok %>
 

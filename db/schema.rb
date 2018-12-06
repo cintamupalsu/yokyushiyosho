@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_28_054622) do
+ActiveRecord::Schema.define(version: 2018_11_29_043011) do
 
   create_table "companies", force: :cascade do |t|
     t.string "name"
@@ -59,6 +59,25 @@ ActiveRecord::Schema.define(version: 2018_11_28_054622) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  create_table "watson_language_keywords", force: :cascade do |t|
+    t.string "keyword"
+    t.float "relevance"
+    t.integer "watson_language_master_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["keyword", "created_at"], name: "index_watson_language_keywords_on_keyword_and_created_at"
+    t.index ["watson_language_master_id"], name: "index_watson_language_keywords_on_watson_language_master_id"
+  end
+
+  create_table "watson_language_masters", force: :cascade do |t|
+    t.text "content"
+    t.text "variant"
+    t.integer "anchor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["content", "created_at"], name: "index_watson_language_masters_on_content_and_created_at"
+  end
+
   create_table "yokyu_children", force: :cascade do |t|
     t.string "name"
     t.string "default_col"
@@ -82,11 +101,13 @@ ActiveRecord::Schema.define(version: 2018_11_28_054622) do
     t.integer "child"
     t.integer "parent"
     t.integer "file_manager_id"
+    t.integer "watson_language_master_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["file_manager_id"], name: "index_yokyu_denpyos_on_file_manager_id"
     t.index ["user_id", "created_at"], name: "index_yokyu_denpyos_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_yokyu_denpyos_on_user_id"
+    t.index ["watson_language_master_id"], name: "index_yokyu_denpyos_on_watson_language_master_id"
     t.index ["yokyu_parent_id"], name: "index_yokyu_denpyos_on_yokyu_parent_id"
   end
 

@@ -9,6 +9,8 @@ class CreateYokyuDenpyos < ActiveRecord::Migration[5.2]
       t.integer :child
       t.integer :parent
       t.references :file_manager, foreign_key: true
+      t.references :watson_language_master, foreign_key: true
+
 
       t.timestamps
     end

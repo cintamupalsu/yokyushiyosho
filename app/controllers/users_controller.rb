@@ -17,15 +17,39 @@ class UsersController < ApplicationController
   
    def create
       @user = User.new(user_params)
+      
+      # on IBM Cloud unmark these
+      #@user.activated = true
+      #@user.activated_at = Time.zone.now
       #if User.count==0 
       #   @user.admin=true
       #end
-      
+      #--------------------------
       if @user.save
          #log_in @user
          #flash[:success] = "PK-Tools on Watsonへようこそ。"
          #redirect_to @user
+         
+         # on IBM Cloud unmark these
+         #if User.count==1
+         #CompanyType.create!(name: "病院",
+         #           client: true,
+         #           flag: 0,
+         #           user_id: 1)
+         #CompanyType.create!(name: "ベンダー",
+         #           client: false,
+         #           flag: 0,
+         #           user_id: 1)
+         #end
+         
+         #YokyuParent.create!(name: "仕様書内容", flag: 0, user_id: @user.id, default_col: "D", default_set: 1)
+         #yokyu_parent = YokyuParent.last
+         #YokyuChild.create!(name: "回答", flag: 0, user_id: @user.id, default_col: "E", yokyu_parent_id: yokyu_parent.id)
+         #YokyuChild.create!(name: "備考", flag: 0, user_id: @user.id, default_col: "H", yokyu_parent_id: yokyu_parent.id)
+
+         #----------------------------
          @user.send_activation_email
+         
          #UserMailer.account_activation(@user).deliver_now
          flash[:info] = "アカウントを有効するためにメールを確認してください。"
          redirect_to root_url

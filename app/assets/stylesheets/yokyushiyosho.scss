@@ -18,3 +18,17 @@ $gray-lighter: #d3d3d3;
 
     
 }
+.upper_line{
+   border-top: 1px solid $gray-lighter;
+ 
+}
+
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}

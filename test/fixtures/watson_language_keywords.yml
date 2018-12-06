@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  keyword: MyString
+  relevance: 1.5
+  watson_language_master: one
+
+two:
+  keyword: MyString
+  relevance: 1.5
+  watson_language_master: two

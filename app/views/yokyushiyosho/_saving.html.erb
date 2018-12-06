@@ -4,8 +4,20 @@
   
     <%= f.label :filename, "仕様書ファイル" %>
     <%= f.file_field :filename, class: 'form-control' %>
-    <%= f.label :worksheetname, "ワークシート名" %>
-    <%= f.text_field :worksheetname, class: 'form-control' %>
+    <div class="row">
+      <div class="col-md-3">
+        <p>ワークシート番号</p>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :worksheetfrom, class: 'form-control' %>
+      </div>
+      <div class="col-md-1 center">
+        <p>-</p>
+      </div>
+      <div class="col-md-2">
+        <%= f.text_field :worksheetto, class: 'form-control' %>
+      </div>
+    </div>
 
     <h4>【詳細設定】</h4>
     

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   post   '/shiyosho',          to: 'yokyushiyosho#sakusei'
   post   '/shiyosho_torikomi', to: 'yokyushiyosho#create_torikomi'
   post   '/shiyosho_sakusei',  to: 'yokyushiyosho#create_sakusei'
+  get    '/similar',           to: 'yokyushiyosho#similar'
+  post   '/similar_post',      to: 'yokyushiyosho#similar_post'
 
 
   resources :users

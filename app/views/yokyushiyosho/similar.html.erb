@@ -1,0 +1,57 @@
+<div class="row">
+  <aside class="col-md-3">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section class="yokyushiyosho">
+      <%= render 'sidebar' %>
+      <div class="progress-percentage text-xs-center">0%</div>
+      <progress class="progress progress-striped" max="100" value="0"></progress>
+
+    </section>
+  </aside>
+  <div class="container col-md-9">
+    
+    <h2>確認</h2>
+    <%= form_for(:kakunin, url: similar_post_path) do |f| %>
+      <% if @count_similar_sentence!= nil  %>
+        <div class="row upper_line">
+          <strong>
+          <div class="col-md-1">№</div>
+          <div class="col-md-8 center">文法</div>
+          <div class="col-md-1 center">同</div>
+          </strong>
+        </div>
+        <%= f.hidden_field :filexls_name, value: @filexls_name %>
+        <%= f.hidden_field :hospital, value: @hospital %>
+        <%= f.hidden_field :vendor, value: @vendor %>
+        <%= f.hidden_field :child_id, value: @child_id %>
+        <% (0..@count_similar_sentence-1).each do |i| %>
+          <div class="row upper_line">
+            <div class="col-md-1"><%= (i+1).to_s %></div>
+            <small class="col-md-8 ">
+              <p>元：<%= WatsonLanguageMaster.find(@similar_parent_id[i]).variant %></p>
+              <%= f.hidden_field :watson_parent_id, value: @similar_parent_id[i], multiple: true %>
+              <p>新：<%= @sentence_variant[i] %></p>
+              <%= f.hidden_field :sentence_variant, value: @sentence_variant[i], multiple: true %>
+              <%= f.hidden_field :sentence_origin, value: @sentence_origin[i], multiple: true %>
+              <%= f.hidden_field :sentence_answer, value: @sentence_answer[i], multiple: true %>
+              <%= f.hidden_field :watson_result, value: @watson_result[i], multiple: true %>
+            </small>
+            <div class="col-md-2">
+              <%= f.label :onaji, class: "checkbox" do %>
+              <%= f.check_box :onaji, multiple: true %>
+              <% end %>
+            </div>
+
+          </div>
+        <% end %>
+      <% end %>
+      <%= f.submit "取込", class: "btn btn-primary" %>
+    <% end %>
+    
+  </div>
+</div>
